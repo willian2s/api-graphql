@@ -1,5 +1,1 @@
-export default `
-  type Query {
-    hello: String
-  }
-`;
+import { fileLoader } from 'merge-graphql-schemas';

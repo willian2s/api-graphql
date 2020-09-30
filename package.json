@@ -11,12 +11,13 @@
     "@babel/preset-env": "^7.11.5",
     "eslint": "^7.10.0",
     "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.2"
   },
   "scripts": {
-    "start:dev": "npx nodemon --exec babel-node src/index.js",
+    "start:dev": "npx nodemon --exec babel-node src/index.js -e js,gql",
     "lint": "eslint ./src --ext .js",
     "lint:fix": "eslint ./src --ext .js --fix",
     "style:check": "prettier --check 'src/**/*.js'",
@@ -26,6 +27,7 @@
     "apollo-server": "^2.18.1",
     "global": "^4.4.0",
     "graphql": "^15.3.0",
+    "merge-graphql-schemas": "^1.7.8",
     "mongoose": "^5.10.7"
   }
 }
