@@ -19,6 +19,16 @@ export default {
 
       return user;
     },
+
+    createUsers: async (_, { data }, { pubsub }) => {
+      const users = await data.map((user) => User.create(user));
+
+      pubsub.publish(USER_ADDED, {
+        userAdded: users,
+      });
+
+      return users;
+    },
     updateUser: (_, { id, data }) => User.findOneAndUpdate(id, data, { new: true }),
     deleteUser: async (_, { id }) => !!(await User.findOneAndDelete(id)),
   },
